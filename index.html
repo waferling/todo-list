@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./todo.css">
+
+    <!-- link needed to get fontawesome icons to work-->
+    <script src="https://kit.fontawesome.com/3c5ad38dec.js" crossorigin="anonymous"></script>
+
+    <!-- Fontawesome, for reference: https://fontawesome.com/search
+    search for icons, and copy the unicode of preferred icon.
+    In CSS, insert unicode after \ symbol.
+    In Javascript, insert HTML code <i> symbol.-->
+
+</head>
+<body>
+    <header class="list-title">TO-DO LIST</header>
+    <div class="container">
+        <form>
+            <!--This is the input-bar to enter and add new tasks.
+            autocomplete="off" disables the "memory" of input field
+            so it does NOT suggest previous entries-->
+            <input type="text" id="input-box" class="no-select" placeholder="Enter new task..." autocomplete="off">
+            <button style="position: relative;" id="add-item" class="btn no-select" type="submit" onclick="addTask()">
+                <span style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">+</span>
+            </button>
+
+            <ul id="list-container">
+                <!-- <li class="checked">Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li> -->
+            </ul>
+
+        </form>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>

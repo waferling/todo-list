@@ -1,0 +1,218 @@
+body {
+    font-family: "Caveat", serif;
+    font-optical-sizing: auto;
+    font-weight:500;
+    font-style: normal;
+    background-color: rgb(0, 91, 65);
+    color: rgb(219, 230, 129);
+
+    /* Preventing dark mode from ruining page color at the body tag*/
+    margin: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    min-height: 100vh; /* Makes body (and hence the background-color) expand to full viewport height */
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    /* moves the list */
+    padding-top: 2%;
+    padding-right: 0%;
+}
+
+.container {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    background-color: rgb(1, 106, 112);
+    border-radius: 2%;
+    width: 305px;
+    min-height: 150px;
+    margin-top: 80px;
+    max-width: 600px;
+    position: relative;
+}
+
+/* .list-title has .container as its parent with relative position
+    and it has absolute position.*/
+/*
+.list-title {
+    text-align: center;
+    margin-top: 50px;
+    margin-left: 200px;
+    font-size: 26px;
+    font-weight: 500;
+    text-shadow: 2px 2px 2px black;
+    padding-left: 30%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+*/
+
+.list-title {
+    text-align: center;
+    font-size: 26px;
+    font-weight: 500;
+    text-shadow: 2px 2px 2px black;
+    position: absolute; /* Positions it relative to the nearest relative container */
+    top: 0px; /* Move above the container */
+    left: 50%; /* Center horizontally relative to the container */
+    transform: translateX(-50%); /* Adjust to perfectly center */
+    padding: 10px;
+    margin-top: 60px;
+}
+
+/* Makes task-input bar text color different from default browser style */
+/* This needs to be put separately (as shown here) so that placeholder color changes */
+input::placeholder {
+    padding: 5px;
+    color: rgba(219, 230, 129, 0.7); /* Adjust placeholder color */
+}
+
+#input-box {
+    background-color: rgb(1, 106, 112) !important;
+    border: 2px dashed rgb(41, 70, 44);
+    border-radius: 2px;
+    padding: 5px;
+    width: 245px;
+    margin-top: 5px;
+    margin-left: 5px;
+    text-align: left;
+    font-family: inherit;
+    font-size: 22px;
+
+    /* prevents whole box from getting highlighted upon selection*/
+    outline: none;
+
+    /* Maintains color of text while typing new task */
+    color:rgb(219, 230, 129) !important;
+}
+
+.btn {
+    border: none;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: rgb(215, 227, 148);
+    border-radius: 5px;
+    color: rgb(41, 70, 44);
+    font-weight: 900;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    margin-top: 2px;
+    margin-left: 3px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+
+/* Inserts fontawesome icon before each li element */
+ul {
+    --icon-size: .8em;
+    --gutter: .5em;
+    padding: 0 0 0 var(--icon-size);
+  }
+  
+ul li {
+    list-style: none;
+    padding-left: var(--gutter);
+    margin-left: 15px;
+    font-size: 20px;
+    user-select: none;
+    cursor: pointer;
+
+    /* Lengthy tasks remain within the list */
+    word-wrap: break-word;
+    padding: 5px 20px;
+}
+
+ul li::marker {
+    content: "\f096"; /* FontAwesome Unicode placed after backlash symbol*/
+    font-family: FontAwesome;
+    font-size: var(--icon-size);
+}
+
+/* NOTE: Unicode for list icons
+ f096 for unchecked-square
+ f14a for checked-square
+ f044 for pencil-in-square/edit
+ f00d for delete
+*/
+
+ul li.checked {
+    color: rgba(219, 230, 129, 0.5);
+    text-decoration: line-through;
+}
+
+ul li.checked::marker {
+    content: "\f14a"; /* checkmark, FontAwesome Unicode placed after backlash symbol*/
+    font-family: FontAwesome;
+    font-size: var(--icon-size);
+}
+
+ul li span {
+    /* delete button */
+    position: absolute;
+    right: 0;
+    width: 39px;
+    height: 40px;
+    color: rgb(215, 227, 148);
+    font-size: 12px;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover {
+    /* delete button when cursor hovers on it*/
+    background-color: rgb(8, 78, 82);
+}
+
+/* Prevents selection (with cursor) of the button text */
+.no-select {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* When text on page is drag-selected with cursor */
+::selection {
+    background-color: rgb(35, 45, 63);
+    color: rgb(246, 244, 131);
+}
+
+/* @media queries for a responsive experience */
+/* For small mobile devices */
+@media screen and (max-width: 480px) {
+    .list-title {
+        font-size: 20px; /* Smaller font for small screens */
+        top: -30px;      /* Adjust position */
+        text-shadow: 1px 1px 1px black; /* Lighter shadow */
+    }
+}
+
+/* For tablets */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .list-title {
+        font-size: 22px; /* Slightly smaller than default */
+        top: -30px;      /* Adjust position */
+    }
+}
+
+/* For laptops and desktops */
+@media screen and (min-width: 769px) and (max-width: 1200px) {
+    .list-title {
+        font-size: 22px; /* Larger font for larger screens */
+        top: -30px;      /* Same as default */
+    }
+}
+
+/* For wide PC screens */
+@media screen and (min-width: 1201px) {
+    .list-title {
+        font-size: 28px; /* Bigger font for wide screens */
+        top: -10px;      /* Consistent placement */
+    }
+}
