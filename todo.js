@@ -55,6 +55,11 @@ listContainer.addEventListener("click", function(e){
         e.target.parentElement.remove();
         saveData();
     }
+
+    else if(e.target.tagName === "MARKER"){
+        e.target.parentElement.remove();
+        saveData();
+    }
 }, false);
 
 

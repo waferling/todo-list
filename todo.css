@@ -35,21 +35,7 @@ body {
 }
 
 /* .list-title has .container as its parent with relative position
-    and it has absolute position.*/
-/*
-.list-title {
-    text-align: center;
-    margin-top: 50px;
-    margin-left: 200px;
-    font-size: 26px;
-    font-weight: 500;
-    text-shadow: 2px 2px 2px black;
-    padding-left: 30%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-*/
+   while .list-title has absolute position.*/
 
 .list-title {
     text-align: center;
@@ -128,7 +114,7 @@ ul li {
 }
 
 ul li::marker {
-    content: "\f096"; /* FontAwesome Unicode placed after backlash symbol*/
+    content: "\f096"; /* FontAwesome Unicode is placed after backslash symbol*/
     font-family: FontAwesome;
     font-size: var(--icon-size);
 }
@@ -146,7 +132,7 @@ ul li.checked {
 }
 
 ul li.checked::marker {
-    content: "\f14a"; /* checkmark, FontAwesome Unicode placed after backlash symbol*/
+    content: "\f14a"; /* checkmark, FontAwesome Unicode must be placed after backslash symbol*/
     font-family: FontAwesome;
     font-size: var(--icon-size);
 }
@@ -155,13 +141,22 @@ ul li span {
     /* delete button */
     position: absolute;
     right: 0;
-    width: 39px;
+    width: 40px;
     height: 40px;
     color: rgb(215, 227, 148);
     font-size: 12px;
     line-height: 40px;
     text-align: center;
     border-radius: 50%;
+    margin-right: 5px;
+}
+
+/* makes delete button more responsive */
+ul li span::after {
+    content: '';
+    position: absolute;
+    inset-block: -10px;
+    inset-inline: -10px;
 }
 
 ul li span:hover {
