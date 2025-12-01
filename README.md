@@ -1,4 +1,4 @@
-## :soccer: To Do List
+## :memo: To Do List
 
 A todo list equipped with local storage in the browser, and a user-friendly dark-green interface.
 Try out the todo list [here.](https://waferling.github.io/todo-list/)
